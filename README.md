@@ -9,5 +9,9 @@ Installation
 ------------
 
     git glone git@github.com:visualdensity/rcfiles.git ~/ 
+    git submodule init
+    git submodule update
+    git submodule foreach checkout master
+    # Build CommandT extension
     cd ~/.vim/bundle/command-t/
     rake make
