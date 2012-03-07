@@ -1,8 +1,8 @@
 RC Files
 ========
 
-In the [footsteps](holman/dotfiles) [of](garybernhardt/dotfiles)
-[others](ryanb/dotfiles), I have decided to start managing my rc or dotfiles
+In the [footsteps](/holman/dotfiles) [of](/garybernhardt/dotfiles)
+[others](/ryanb/dotfiles), I have decided to start managing my rc or dotfiles
 proactively so I can easily rebuild my environment easily.
 
 This repo includes `Vim` with `Pathogen`, `Fugitive` and `CommandT` installed, 
