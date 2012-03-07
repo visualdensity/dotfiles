@@ -1,4 +1,4 @@
-" ================================================
+" =========================================================
 " Configuration file for vim 
 " 
 " Of course, I haven't created this file entirely
@@ -8,7 +8,9 @@
 " Who: Wee Keat <weekeat@visualdensity.com>
 " Git: git@github.com:visualdensity/rcfiles.git
 "
-" ================================================
+" Nice resource:
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+" =========================================================
 
 syntax on
 filetype off
@@ -68,6 +70,9 @@ map <leader>ss :CommandTFlush<cr>\|:CommandT vendor/<cr>
 
 " NERDTree
 map <leader>nt :NERDTree %%
+
+" Open up ~/.vimrc quick!
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " Theme
 let g:solarized_termtrans=1
