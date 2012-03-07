@@ -15,6 +15,9 @@ filetype off
 call pathogen#infect() " ~/.vim/autoload/pathogen.vim
 filetype plugin indent on
 
+" My lead
+let mapleader=','
+
 set nocompatible
 set backspace=indent,eol,start " more powerful backspacing
 set number
@@ -37,7 +40,7 @@ set modelines=0 " The modelines bit prevents some security exploits
 set ignorecase
 set smartcase
 
-" Regexp reset
+" Regexp reset & search
 nnoremap / /\v
 vnoremap / /\v
 set incsearch
@@ -49,9 +52,11 @@ nnoremap <leader><space> :noh<cr>
 " Keybinding for paste mode
 set pastetoggle=<C-0>
 
-let mapleader=','
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+" Removes all trailing whitespaces
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+" %% shows current location
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
