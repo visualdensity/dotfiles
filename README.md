@@ -39,5 +39,6 @@ are also automated in the `setup.sh`
     cd ~/.vim/bundle/command-t
     rake make
 
-If you want to install `zsh`
+If you want to install `zsh`:
+
     ./setup_zsh.sh
