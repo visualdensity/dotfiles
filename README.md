@@ -1,10 +1,14 @@
 RC Files
 ========
 
-My own dot rc files, starting with my `Vim` with `Pathogen`, `Fugitive` and 
-`CommandT` installed. It contains a few setup scripts that helps me install 
-what I need on new servers very quickly. It may not necessarily apply to your 
-environment so please use it at your own risk.
+In the [footsteps](holman/dotfiles) [of](garybernhardt/dotfiles)
+[others](ryanb/dotfiles), I have decided to start managing my rc or dotfiles
+proactively so I can easily rebuild my environment easily.
+
+This repo includes `Vim` with `Pathogen`, `Fugitive` and `CommandT` installed, 
+my `.gitconfig` and `.bashrc` files, etc. It also contains a few setup 
+scripts that helps me install what I need on new servers very quickly. It may 
+not necessarily apply to your environment so please use it at your own risk.
 
 Dependencies
 ------------
