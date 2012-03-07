@@ -1,6 +1,10 @@
 " ================================================
 " Configuration file for vim 
 " 
+" Of course, I haven't created this file entirely
+" by hand, from scratch. It's all copy & pasted
+" from various sources over the years. :)
+" 
 " Who: Wee Keat <weekeat@visualdensity.com>
 " Git: git@github.com:visualdensity/rcfiles.git
 "
@@ -32,13 +36,15 @@ set modelines=0 " The modelines bit prevents some security exploits
 " Ignore case and search intelligently
 set ignorecase
 set smartcase
-" ,<space> to clear off search input * hlsearch
-nnoremap <leader><space> :noh<cr> 
 
 " Regexp reset
 nnoremap / /\v
 vnoremap / /\v
+set incsearch
+set showmatch
 set hlsearch
+" ,<space> to clear off search input * hlsearch
+nnoremap <leader><space> :noh<cr> 
 
 " Keybinding for paste mode
 set pastetoggle=<C-0>
