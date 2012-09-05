@@ -12,15 +12,18 @@
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 " =========================================================
 
+" Must come first
+set nocompatible
 syntax on
+
 filetype off
+call pathogen#helptags()
 call pathogen#infect() " ~/.vim/autoload/pathogen.vim
 filetype plugin indent on
 
 " My lead
 let mapleader=','
 
-set nocompatible
 set backspace=indent,eol,start " more powerful backspacing
 set number
 set encoding=utf-8
@@ -36,7 +39,7 @@ set tw=84 "maximum characters in a line before wrapping
 set winheight=5
 set winminheight=5
 set winheight=999
-set modelines=0 " The modelines bit prevents some security exploits 
+set nomodeline " The modelines bit prevents some security exploits 
 
 " Ignore case and search intelligently
 set ignorecase
@@ -52,7 +55,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr> 
 
 " Keybinding for paste mode
-set pastetoggle=<C-0>
+set pastetoggle=<F2>
 
 " Removes all trailing whitespaces
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -75,11 +78,12 @@ map <leader>nt :NERDTree %%
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " Theme
+set background=dark
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-" colorscheme solarized
+colorscheme solarized
 
 " Buffer filetype
 au BufRead,BufNewFile *.thtml   set ft=php
