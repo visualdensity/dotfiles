@@ -42,3 +42,12 @@ are also automated in the `setup.sh`
 If you want to install `zsh`:
 
     ./setup_zsh.sh
+
+### On Mac OS (tested on Snow Leopard, Lion)
+To get everything running, especially command-T, you need to first install XCode for
+the build tools. If it still doesn't work, try installing command line tools via
+Xcode using the following steps:
+
+  # Preferences
+  # Go to Downloads tab
+  # Click 'Install' on the 'Command Line Tools'
