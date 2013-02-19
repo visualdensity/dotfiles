@@ -66,10 +66,10 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 " Symfony2 mappings for CommandT plugin
-map <leader>sb :CommandTFlush<cr>\|:CommandT src/<cr>
+map <leader>sr :CommandTFlush<cr>\|:CommandT src/<cr>
 map <leader>sa :CommandTFlush<cr>\|:CommandT app/<cr>
 map <leader>sw :CommandTFlush<cr>\|:CommandT web/<cr>
-map <leader>ss :CommandTFlush<cr>\|:CommandT vendor/<cr>
+map <leader>sv :CommandTFlush<cr>\|:CommandT vendor/<cr>
 
 " NERDTree
 map <leader>nt :NERDTree %%
@@ -89,6 +89,7 @@ colorscheme solarized
 au BufRead,BufNewFile *.thtml   set ft=php
 au BufRead,BufNewFile *.twig    set ft=php
 au BufRead,BufNewFile *.ctp     set ft=php
+au BufRead,BufNewFile *.json    set ft=javascript
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
