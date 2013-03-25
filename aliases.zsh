@@ -31,8 +31,8 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 alias lsd='ls -l | grep "^d"'
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias sniff="ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # File size
 alias fs="stat -f \"%z bytes\""
