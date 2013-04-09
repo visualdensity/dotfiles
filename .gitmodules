@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-puppet"]
 	path = .vim/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule ".vim/bundle/align"]
+	path = .vim/bundle/align
+	url = git://github.com/vim-scripts/Align.git
