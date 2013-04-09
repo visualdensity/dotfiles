@@ -5,5 +5,5 @@ git submodule foreach git pull
 
 cp .vimrc ~/
 cp -R .vim ~/
-#cd ~/.vim/bundle/command-t
-#rake make
+cd ~/.vim/bundle/command-t
+rake make
