@@ -48,6 +48,6 @@ To get everything running, especially command-T, you need to first install XCode
 the build tools. If it still doesn't work, try installing command line tools via
 Xcode using the following steps:
 
-  # Preferences
-  # Go to Downloads tab
-  # Click 'Install' on the 'Command Line Tools'
+  1. Preferences
+  2. Go to Downloads tab
+  3. Click 'Install' on the 'Command Line Tools'
