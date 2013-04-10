@@ -51,3 +51,9 @@ Xcode using the following steps:
   1. Preferences
   2. Go to Downloads tab
   3. Click 'Install' on the 'Command Line Tools'
+
+
+Other Installables
+------------------
+
+  * Pygments - http://pygments.org/
