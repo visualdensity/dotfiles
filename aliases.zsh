@@ -12,7 +12,7 @@ alias ll='ls -l'
 alias sl=ls # often screw this up
 
 # Navigation
-alias www='cd /var/www/vhosts'
+alias www='cd /var/www/'
 
 # Symfony specific
 alias sf='php app/console'
