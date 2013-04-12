@@ -12,7 +12,10 @@ alias ll='ls -l'
 alias sl=ls # often screw this up
 
 # Navigation
-alias www='cd /var/www/'
+alias www='cd /var/www/vhosts'
+alias dd='cd ~/Dev'
+alias dg='cd ~/Dev/git'
+alias vv='cd ~/Dev/git/vagrant/'
 
 # Symfony specific
 alias sf='php app/console'
@@ -36,3 +39,5 @@ alias httpdump="tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*
 
 # File size
 alias fs="stat -f \"%z bytes\""
+
+alias v="vagrant"
