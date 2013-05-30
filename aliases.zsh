@@ -41,3 +41,26 @@ alias httpdump="tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*
 alias fs="stat -f \"%z bytes\""
 
 alias v="vagrant"
+
+export AWS_CONFIG_FILE=/Users/wchin/.aws.conf
+
+function regions {
+    echo "AWS Regions List"
+    echo "================="
+    echo "  * ap-southeast-2 (Sydney)"
+    echo "  * us-east-1 (N Virginia)"
+    echo "  * us-west-2 (Oregon)"
+    echo "  * us-west-1 (N California)"
+    echo "  * eu-west-1 (Ireland)"
+    echo "  * ap-southeast-1 (Singapore)"
+    echo "  * ap-northeast-1 (Tokyo)"
+    echo "  * sa-east-1 (Sao Paulo)"
+}
+
+function ec2 {
+    aws ec2 describe-instances --instance-ids $@ | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, Tags: [.Tags[]]}'
+}
+
+function ec2s {
+    aws ec2 describe-instances --filter '{"name":"instance-state-name", "values":"running"}' | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId}'
+}
