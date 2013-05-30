@@ -35,9 +35,9 @@ set softtabstop=4
 set cinkeys=0{,0},:,0#,!,!^F
 set expandtab
 set shiftround
-set tw=84 "maximum characters in a line before wrapping
-set winheight=5
-set winminheight=5
+"set tw=84 "maximum characters in a line before wrapping
+set winheight=20
+set winminheight=20
 set winheight=999
 set nomodeline " The modelines bit prevents some security exploits 
 
