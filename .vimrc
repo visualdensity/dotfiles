@@ -87,18 +87,19 @@ noremap <leader>ss :call StripWhitespace()<CR>
 
 " Theme
 set background=dark
+colorscheme solarized
+
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-colorscheme solarized
 
 " Buffer filetype
-au BufRead,BufNewFile *.thtml   set ft=php
-au BufRead,BufNewFile *.twig    set ft=php
 au BufRead,BufNewFile *.ctp     set ft=php
-au BufRead,BufNewFile *.json    set ft=javascript
+au BufRead,BufNewFile *.twig    set ft=php
+au BufRead,BufNewFile *.scss    set ft=sass
 au BufRead,BufNewFile *.coffee  set ft=coffee
+au BufRead,BufNewFile *.json    set ft=javascipt
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
