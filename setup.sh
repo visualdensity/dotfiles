@@ -14,15 +14,15 @@ function help {
 
 while getopts ":a" opt; do
     case $opt in
-	a)
-	    all=1
-	    ;;
+        a)
+            all=1
+            ;;
     esac
 done
 
 sudo -v
 
-if [ -n "$all" ];
+if [ -n "$all" ]; 
 then
     echo 'Installing pre-requisites...'
     sudo apt-get install ruby
