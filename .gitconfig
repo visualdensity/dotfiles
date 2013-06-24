@@ -7,6 +7,62 @@
     br = branch
     co = checkout
     df = diff
-    lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author joe
     purr = pull --rebase
+
+[apply]
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
+
+[core]
+    whitespace = space-before-tab,indent-with-non-tab,trailing-space
+
+[color]
+    # Use colors in Git commands that are capable of colored output when outputting to the terminal
+    ui = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+
+# URL shorthands
+#[url "git@github.com:"]
+#    insteadOf = "gh:"
+#    pushInsteadOf = "github:"
+#    pushInsteadOf = "git://github.com/"
+#
+#[url "git://github.com/"]
+#    insteadOf = "github:"
+#
+#[url "git@gist.github.com:"]
+#    insteadOf = "gst:"
+#    pushInsteadOf = "gist:"
+#    pushInsteadOf = "git://gist.github.com/"
+#
+#[url "git://gist.github.com/"]
+#    insteadOf = "gist:"
+#
+#[push]
+#    default = matching
