@@ -14,9 +14,7 @@ function help {
 }
 
 function blah () {
-    #echo -e "\033[1m$1\033[0m" #bold
-    echo -e '\E[36m'"$1" 
-    tput sgr0
+    echo -e '\E[33m'"$1" '\E[0m'
 }
 
 while getopts ":ah" opt; do
