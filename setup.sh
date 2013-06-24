@@ -13,7 +13,6 @@ function help {
     exit 0
 }
 
-
 function blah () {
     #echo -e "\033[1m$1\033[0m" #bold
     echo -e '\E[36m'"$1" 
@@ -57,5 +56,12 @@ cp -R .vim ~/
 blah 'Buildling command-t...'
 cd ~/.vim/bundle/command-t
 rake make
+
+if [ -n "$all" ];
+then
+    blah 'Installing oh-my-zsh...'
+    curl -L https://github.com/visualdensity/oh-my-zsh/raw/master/tools/install.sh | sh
+    cp aliases.zsh ~/.oh-my-zsh/lib/
+fi
 
 blah 'Done!'
