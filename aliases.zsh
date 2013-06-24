@@ -42,7 +42,9 @@ alias fs="stat -f \"%z bytes\""
 
 alias v="vagrant"
 
-export AWS_CONFIG_FILE=/Users/wchin/.aws.conf
+if [ -f ~/.aws.conf ]; then
+    export AWS_CONFIG_FILE=~/.aws.conf
+fi
 
 function regions {
     echo "AWS Regions List"
