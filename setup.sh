@@ -10,13 +10,24 @@
 function help {
     echo "Usage: ./setup.sh [option]"
     echo "      -a Full install including ruby, gems, rake and zsh"
+    exit 0
 }
 
-while getopts ":a" opt; do
+
+function blah () {
+    #echo -e "\033[1m$1\033[0m" #bold
+    echo -e '\E[36m'"$1"
+    tput sgr0
+}
+
+while getopts ":ah" opt; do
     case $opt in
         a)
             all=1
             ;;
+	h)
+	    help
+	    ;;
     esac
 done
 
@@ -24,7 +35,7 @@ sudo -v
 
 if [ -n "$all" ]; 
 then
-    echo 'Installing pre-requisites...'
+    blah 'Installing pre-requisites...'
     sudo apt-get install ruby
     sudo apt-get install rubygems
     sudo gem install rake
@@ -32,19 +43,19 @@ then
     sudo apt-get install zsh
 fi
 
-echo 'Initialising and updating modules...'
+blah 'Initialising and updating modules...'
 git submodule init
 git submodule update
 git submodule foreach git checkout master
 git submodule foreach git pull
 
-echo 'Copying files to proper locations...'
+blah 'Copying files to proper locations...'
 cp .gitconfig ~/
 cp .vimrc ~/
 cp -R .vim ~/
 
-echo 'Buildling command-t...'
+blah 'Buildling command-t...'
 cd ~/.vim/bundle/command-t
 rake make
 
-echo 'Done!'
+blah 'Done!'
