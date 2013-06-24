@@ -71,11 +71,19 @@ map <leader>sa :CommandTFlush<cr>\|:CommandT app/<cr>
 map <leader>sw :CommandTFlush<cr>\|:CommandT web/<cr>
 map <leader>sv :CommandTFlush<cr>\|:CommandT vendor/<cr>
 
-" NERDTree
-map <leader>nt :NERDTree %%
-
 " Open up ~/.vimrc quick!
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfunction
+
+noremap <leader>ss :call StripWhitespace()<CR>
 
 " Theme
 set background=dark
@@ -90,6 +98,7 @@ au BufRead,BufNewFile *.thtml   set ft=php
 au BufRead,BufNewFile *.twig    set ft=php
 au BufRead,BufNewFile *.ctp     set ft=php
 au BufRead,BufNewFile *.json    set ft=javascript
+au BufRead,BufNewFile *.coffee  set ft=coffee
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
