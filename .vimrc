@@ -1,10 +1,10 @@
 " =========================================================
-" Configuration file for vim 
-" 
+" Configuration file for vim
+"
 " Of course, I haven't created this file entirely
 " by hand, from scratch. It's all copy & pasted
 " from various sources over the years. :)
-" 
+"
 " Who: Wee Keat <weekeat@visualdensity.com>
 " Git: git@github.com:visualdensity/rcfiles.git
 "
@@ -24,7 +24,7 @@ filetype plugin indent on
 " My lead
 let mapleader=','
 
-set backspace=indent,eol,start " more powerful backspacing
+set backspace=indent,eol,start
 set number
 set encoding=utf-8
 set smartindent
@@ -32,12 +32,13 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set cinkeys=0{,0},:,0#,!,!^F
+set cinkeys=0{,0},:,0#,!^F
 set expandtab
 set shiftround
 "set tw=84 "maximum characters in a line before wrapping
-set winheight=15
-set winminheight=15
+set nowrap
+set winheight=5
+set winminheight=5
 set winheight=999
 set modeline
 
@@ -51,6 +52,53 @@ vnoremap / /\v
 set incsearch
 set showmatch
 set hlsearch
+
+
+"====[ Make the 81st column stand out ]====================
+"
+
+    " OR ELSE just the 81st column of wide lines...
+    highlight ColorColumn ctermbg=magenta
+    call matchadd('ColorColumn', '\%75v', 100)
+
+    " EITHER the entire 81st column, full-screen...
+    " highlight ColorColumn ctermbg=magenta
+    " set colorcolumn=75
+
+"====[ Make the 81st column stand out ]====================
+
+    " This rewires n and N to do the highlighing...
+    nnoremap <silent> n   n:call HLNext(0.4)<cr>
+    nnoremap <silent> N   N:call HLNext(0.4)<cr>
+
+    " EITHER blink the line containing the match...
+    function! HLNext (blinktime)
+        set invcursorline
+        redraw
+        exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+        set invcursorline
+        redraw
+    endfunction
+
+"====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
+
+    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+    set list
+
+"====[ Open any file with a pre-existing swapfile in readonly mode "]=========
+
+    augroup NoSimultaneousEdits
+        autocmd!
+        autocmd SwapExists * let v:swapchoice = 'o'
+        autocmd SwapExists * echomsg ErrorMsg
+        autocmd SwapExists * echo 'Duplicate edit session (readonly)'
+        autocmd SwapExists * echohl None
+        autocmd SwapExists * sleep 2
+    augroup END
+
+    " Also consider the autoswap_mac.vim plugin (but beware its limitations)
+
+
 " ,<space> to clear off search input * hlsearch
 nnoremap <leader><space> :noh<cr> 
 
@@ -74,17 +122,6 @@ map <leader>sv :CommandTFlush<cr>\|:CommandT vendor/<cr>
 " Open up ~/.vimrc quick!
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    :%s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
-endfunction
-
-noremap <leader>ss :call StripWhitespace()<CR>
-
 " Theme
 set background=dark
 colorscheme solarized
@@ -100,6 +137,7 @@ au BufRead,BufNewFile *.twig    set ft=php
 au BufRead,BufNewFile *.scss    set ft=sass
 au BufRead,BufNewFile *.coffee  set ft=coffee
 au BufRead,BufNewFile *.json    set ft=javascipt
+au BufRead,BufNewFile *.ino     set ft=cpp
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
