@@ -12,7 +12,7 @@ alias ll='ls -l'
 alias sl=ls # often screw this up
 
 # Navigation
-alias www='cd /var/www/vhosts'
+alias www='cd /var/www/'
 alias dv='cd ~/Dev'
 alias dg='cd ~/Dev/git'
 alias vv='cd ~/Dev/git/vagrant/'
