@@ -13,7 +13,7 @@ alias sl=ls # often screw this up
 
 # Navigation
 alias www='cd /var/www/vhosts'
-alias dd='cd ~/Dev'
+alias dv='cd ~/Dev'
 alias dg='cd ~/Dev/git'
 alias vv='cd ~/Dev/git/vagrant/'
 
@@ -40,11 +40,15 @@ alias httpdump="tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*
 # File size
 alias fs="stat -f \"%z bytes\""
 
+# Vagrant
 alias v="vagrant"
 
-if [ -f ~/.aws.conf ]; then
-    export AWS_CONFIG_FILE=~/.aws.conf
-fi
+alias nand="/Applications/nand2tetris/tools/HardwareSimulator.sh &"
+
+# AWS
+alias elbs="aws elb describe-load-balancers | jq '.LoadBalancerDescriptions[] | { Instances: [.Instances[].InstanceId], LoadBalancerName }'"
+alias elba="aws elb describe-load-balancers | jq '.'"
+alias cf='aws cloudformation'
 
 function regions {
     echo "AWS Regions List"
@@ -59,10 +63,27 @@ function regions {
     echo "  * sa-east-1 (Sao Paulo)"
 }
 
+
+
 function ec2 {
     aws ec2 describe-instances --instance-ids $@ | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, Tags: [.Tags[]]}'
 }
 
 function ec2s {
     aws ec2 describe-instances --filter '{"name":"instance-state-name", "values":"running"}' | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId}'
+}
+
+function ss {
+    echo "SSHing to root@$@"
+    ssh -p 4031 root@$@
+}
+
+function ds {
+    echo "Describing stack $@"
+    aws cloudformation describe-stacks --stack-name $@ | jq '.'
+}
+
+function cfl {
+    echo "Listing available stacks..."
+    aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE | jq '.'
 }
