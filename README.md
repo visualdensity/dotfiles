@@ -1,5 +1,4 @@
-RC Files
-========
+# RC Files
 
 In the [footsteps](/holman/dotfiles) [of](/garybernhardt/dotfiles)
 [others](/ryanb/dotfiles), I have decided to start managing my rc or dotfiles
@@ -10,8 +9,7 @@ my `.gitconfig` and `.bashrc` files, etc. It also contains a few setup
 scripts that helps me install what I need on new servers very quickly. It may 
 not necessarily apply to your environment so please use it at your own risk.
 
-Dependencies
-------------
+## Dependencies (Manual Install)
 Several packages needs to be installed first before this would work - below 
 applies ONLY to my situation (only works if this sequence is followed):
 
@@ -24,10 +22,9 @@ Optional (if you would like to install `oh-my-zsh`):
 
     apt-get install zsh
 
-Installation
-------------
+## Installation
 Here's a typical setup process that I use when it's a brand new install. These
-are also automated in the `setup.sh`
+are also automated in the `setup.sh -a`
 
     git submodule init
     git submodule update
@@ -53,7 +50,9 @@ Xcode using the following steps:
   3. Click 'Install' on the 'Command Line Tools'
 
 
-Other Installables
-------------------
+## Other Installables
 
+I have aliases that wraps around the following:
+
+  * AWS CLI - http://aws.amazon.com/cli/
   * Pygments - http://pygments.org/
