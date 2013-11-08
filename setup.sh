@@ -33,7 +33,7 @@ sudo -v
 if [ -n "$all" ]; 
 then
     blah 'Installing pre-requisites...'
-    sudo apt-get install ruby
+    sudo apt-get install ruby ruby-dev
     sudo apt-get install rubygems
     sudo gem install rake
     sudo apt-get install rake

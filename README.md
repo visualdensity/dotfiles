@@ -15,7 +15,7 @@ Dependencies
 Several packages needs to be installed first before this would work - below 
 applies ONLY to my situation (only works if this sequence is followed):
 
-    apt-get install ruby
+    apt-get install ruby ruby-dev
     apt-get install rubygems
     gem install rake
     apt-get install rake
