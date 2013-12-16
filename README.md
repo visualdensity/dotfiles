@@ -9,6 +9,13 @@ my `.gitconfig` and `.bashrc` files, etc. It also contains a few setup
 scripts that helps me install what I need on new servers very quickly. It may 
 not necessarily apply to your environment so please use it at your own risk.
 
+## Quick, Full Setup
+This takes care of all the dependencies outlined below. Tested only with Ubuntu 13.10:
+
+    cd $dotfile_src/
+    ./setup.sh -a
+
+
 ## Dependencies (Manual Install)
 Several packages needs to be installed first before this would work - below 
 applies ONLY to my situation (only works if this sequence is followed):
