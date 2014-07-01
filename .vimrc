@@ -132,12 +132,13 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
 " Buffer filetype
-au BufRead,BufNewFile *.ctp     set ft=php
-au BufRead,BufNewFile *.twig    set ft=php
-au BufRead,BufNewFile *.scss    set ft=sass
-au BufRead,BufNewFile *.coffee  set ft=coffee
-au BufRead,BufNewFile *.json    set ft=javascipt
-au BufRead,BufNewFile *.ino     set ft=cpp
+au BufRead,BufNewFile *.ctp    set ft=php
+au BufRead,BufNewFile *.twig   set ft=php
+au BufRead,BufNewFile *.scss   set ft=sass
+au BufRead,BufNewFile *.coffee set ft=coffee
+au BufRead,BufNewFile *.json   set ft=javascipt
+au BufRead,BufNewFile *.ino    set ft=cpp
+au BufRead,BufNewFile *.go     set ft=go
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
