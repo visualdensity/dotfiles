@@ -37,8 +37,8 @@ set expandtab
 set shiftround
 "set tw=84 "maximum characters in a line before wrapping
 set nowrap
-set winheight=5
-set winminheight=5
+set winheight=15
+set winminheight=15
 set winheight=999
 set modeline
 
