@@ -54,6 +54,7 @@ set incsearch
 set showmatch
 set hlsearch
 
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "====[ Make the 81st column stand out ]====================
 "
@@ -120,7 +121,7 @@ map <leader>sa :CommandTFlush<cr>\|:CommandT app/<cr>
 map <leader>sw :CommandTFlush<cr>\|:CommandT web/<cr>
 map <leader>sv :CommandTFlush<cr>\|:CommandT vendor/<cr>
 
-"CloudCode
+"CloudCode 
 map <leader>cc :CommandTFlush<cr>\|:CommandT cloud/<cr>
 map <leader>cf :CommandTFlush<cr>\|:CommandT config/<cr>
 map <leader>ct :CommandTFlush<cr>\|:CommandT tools/<cr>
@@ -156,3 +157,5 @@ au BufWrite /private/etc/pw.* set nowritebackup
 
 " fixes term color issue
 let &t_Co=256
+
+let g:vim_markdown_folding_disabled = 1
