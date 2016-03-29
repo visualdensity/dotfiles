@@ -66,3 +66,5 @@
 #
 #[push]
 #    default = matching
+[push]
+	default = simple
