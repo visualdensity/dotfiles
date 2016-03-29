@@ -15,6 +15,7 @@ alias sl=ls # often screw this up
 alias www='cd /var/www/'
 alias dv='cd ~/Dev'
 alias dg='cd ~/Dev/git'
+alias dv='cd ~/Dev/vagrant'
 alias vv='cd ~/Dev/git/vagrant/'
 
 # Symfony specific
@@ -43,6 +44,12 @@ alias fs="stat -f \"%z bytes\""
 # Vagrant
 alias v="vagrant"
 
+# Terraform
+alias t="terraform"
+
+# pwgen shortcut
+alias pw="pwgen -n -s 25 1"
+
 alias nand="/Applications/nand2tetris/tools/HardwareSimulator.sh &"
 
 # AWS
@@ -66,11 +73,15 @@ function regions {
 
 
 function ec2 {
-    aws ec2 describe-instances --instance-ids $@ | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, Tags: [.Tags[]]}'
+    aws ec2 describe-instances --instance-ids $@ | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, SecGroup: [.SecurityGroups[]], Tags: [.Tags[]]}'
 }
 
 function ec2s {
-    aws ec2 describe-instances --filter '{"name":"instance-state-name", "values":"running"}' | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId}'
+    aws ec2 describe-instances --filters Name=instance-state-name,Values=running | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, Tags:[.Tags[]]}'
+}
+
+function ec2c {
+    aws ec2 describe-instances --filters Name=instance-state-name,Values=running Name=tag:Company,Values=$@ | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, Tags: [.Tags[]]}'
 }
 
 function ss {
