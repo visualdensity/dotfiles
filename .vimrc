@@ -40,6 +40,7 @@ set nowrap
 set winheight=15
 set winminheight=15
 set winheight=999
+set modelines=1 "Mac OS X fix - http://unix.stackexchange.com/questions/19875/setting-vim-filetype-with-modeline-not-working-as-expected
 set modeline
 
 " Ignore case and search intelligently
@@ -81,9 +82,9 @@ set hlsearch
     endfunction
 
 "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
-
-    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-    set list
+"
+"    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+"    set list
 
 "====[ Open any file with a pre-existing swapfile in readonly mode "]=========
 
@@ -119,6 +120,12 @@ map <leader>sa :CommandTFlush<cr>\|:CommandT app/<cr>
 map <leader>sw :CommandTFlush<cr>\|:CommandT web/<cr>
 map <leader>sv :CommandTFlush<cr>\|:CommandT vendor/<cr>
 
+"CloudCode
+map <leader>cc :CommandTFlush<cr>\|:CommandT cloud/<cr>
+map <leader>cf :CommandTFlush<cr>\|:CommandT config/<cr>
+map <leader>ct :CommandTFlush<cr>\|:CommandT tools/<cr>
+map <leader>xx :!./%<cr>
+
 " Open up ~/.vimrc quick!
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
@@ -134,9 +141,11 @@ let g:solarized_visibility="high"
 " Buffer filetype
 au BufRead,BufNewFile *.ctp    set ft=php
 au BufRead,BufNewFile *.twig   set ft=php
+au BufRead,BufNewFile *.block  set ft=php
+au BufRead,BufNewFile *.less   set ft=css
 au BufRead,BufNewFile *.scss   set ft=sass
 au BufRead,BufNewFile *.coffee set ft=coffee
-au BufRead,BufNewFile *.json   set ft=javascipt
+au BufRead,BufNewFile *.json   set ft=json
 au BufRead,BufNewFile *.ino    set ft=cpp
 au BufRead,BufNewFile *.go     set ft=go
 
