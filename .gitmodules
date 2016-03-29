@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/align"]
 	path = .vim/bundle/align
 	url = git://github.com/vim-scripts/Align.git
+[submodule ".vim/bundle/vim-json"]
+	path = .vim/bundle/vim-json
+	url = git@github.com:elzr/vim-json.git
