@@ -1,0 +1,4 @@
+# Copy this into .bashrc or .zshrc, etc
+
+#Disable the annoying ._* folders when using tar
+export COPYFILE_DISABLE=1
