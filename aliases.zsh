@@ -1,7 +1,3 @@
-# Push and pop directories on directory stack
-alias pu='pushd'
-alias po='popd'
-
 # Show history
 alias history='fc -l 1'
 
@@ -12,89 +8,39 @@ alias ll='ls -l'
 alias sl=ls # often screw this up
 
 # Navigation
-alias www='cd /var/www/'
-alias dv='cd ~/Dev'
 alias dg='cd ~/Dev/git'
-alias dv='cd ~/Dev/vagrant'
-alias vv='cd ~/Dev/git/vagrant/'
+alias dv='cd ~/Dev'
+alias dvg='cd ~/Dev/go'
+alias dvp='cd ~/Dev/personal'
+alias dvm='cd ~/Dev/mlc'
 
-# Symfony specific
-alias sf='php app/console'
+#Docker
+alias dk='docker'
+alias dkr='docker run'
+alias dkrdev='docker run -v /Users/visualdensity/Dev:/root/dev'
+alias dkv='docker volume ls'
+alias dkps='docker ps -a'
+alias dkrm='docker ps -a --format "{{.ID}}" | xargs docker rm -v'
+alias dcm='docker-compose'
+
+# Vagrant
+alias v="vagrant"
+alias vv='cd ~/Dev/personal/vagrant/'
 
 # Misc
-alias afind='ack-grep -il'
 alias tmux="TERM=screen-256color-bce tmux"
 
 # Below taken from Paul Irish's (@paulirish) dotfiles (Thanks!)
 # Ref: https://github.com/paulirish/dotfiles
 
-# Requires: http://pygments.org/
-alias c='pygmentize -O style=monokai -f console256 -g'
-
-# List only directories
-alias lsd='ls -l | grep "^d"'
-
 # View HTTP traffic
-alias sniff="ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias httpdump="tcpdump -i any -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# Vagrant
-alias v="vagrant"
-
-# Terraform
-alias t="terraform"
-
 # pwgen shortcut
-alias pw="pwgen -n -s 25 1"
+alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
 
-alias nand="/Applications/nand2tetris/tools/HardwareSimulator.sh &"
-
-# AWS
-alias elbs="aws elb describe-load-balancers | jq '.LoadBalancerDescriptions[] | { Instances: [.Instances[].InstanceId], LoadBalancerName }'"
-alias elba="aws elb describe-load-balancers | jq '.'"
-alias cf='aws cloudformation'
-
-function regions {
-    echo "AWS Regions List"
-    echo "================="
-    echo "  * ap-southeast-2 (Sydney)"
-    echo "  * us-east-1 (N Virginia)"
-    echo "  * us-west-2 (Oregon)"
-    echo "  * us-west-1 (N California)"
-    echo "  * eu-west-1 (Ireland)"
-    echo "  * ap-southeast-1 (Singapore)"
-    echo "  * ap-northeast-1 (Tokyo)"
-    echo "  * sa-east-1 (Sao Paulo)"
-}
-
-
-
-function ec2 {
-    aws ec2 describe-instances --instance-ids $@ | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, SecGroup: [.SecurityGroups[]], Tags: [.Tags[]]}'
-}
-
-function ec2s {
-    aws ec2 describe-instances --filters Name=instance-state-name,Values=running | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, Tags:[.Tags[]]}'
-}
-
-function ec2c {
-    aws ec2 describe-instances --filters Name=instance-state-name,Values=running Name=tag:Company,Values=$@ | jq '.Reservations[].Instances[] | {State: .State.Name, AZ: .Placement.AvailabilityZone, KeyName, PublicDnsName, PrivateDnsName, PublicIpAddress, InstanceType, InstanceId, Tags: [.Tags[]]}'
-}
-
-function ss {
-    echo "SSHing to root@$@"
-    ssh -p 4031 root@$@
-}
-
-function ds {
-    echo "Describing stack $@"
-    aws cloudformation describe-stacks --stack-name $@ | jq '.'
-}
-
-function cfl {
-    echo "Listing available stacks..."
-    aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE | jq '.'
-}
+# VMWare CloudClient
+alias cloudclient='/opt/cloudclient/bin/cloudclient.sh'
