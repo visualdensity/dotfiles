@@ -35,7 +35,7 @@ set softtabstop=4
 set cinkeys=0{,0},:,0#,!^F
 set expandtab
 set shiftround
-"set tw=84 "maximum characters in a line before wrapping
+set tw=84 "maximum characters in a line before wrapping
 set nowrap
 set winheight=15
 set winminheight=15
@@ -115,40 +115,18 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
-" Symfony2 mappings for CommandT plugin
-map <leader>sr :CommandTFlush<cr>\|:CommandT src/<cr>
-map <leader>sa :CommandTFlush<cr>\|:CommandT app/<cr>
-map <leader>sw :CommandTFlush<cr>\|:CommandT web/<cr>
-map <leader>sv :CommandTFlush<cr>\|:CommandT vendor/<cr>
-
-"CloudCode 
-map <leader>cc :CommandTFlush<cr>\|:CommandT cloud/<cr>
-map <leader>cf :CommandTFlush<cr>\|:CommandT config/<cr>
-map <leader>ct :CommandTFlush<cr>\|:CommandT tools/<cr>
-map <leader>xx :!./%<cr>
-
 " Open up ~/.vimrc quick!
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " Theme
 set background=dark
-colorscheme solarized
-
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
 
 " Buffer filetype
-au BufRead,BufNewFile *.ctp    set ft=php
-au BufRead,BufNewFile *.twig   set ft=php
-au BufRead,BufNewFile *.block  set ft=php
 au BufRead,BufNewFile *.less   set ft=css
 au BufRead,BufNewFile *.scss   set ft=sass
 au BufRead,BufNewFile *.coffee set ft=coffee
 au BufRead,BufNewFile *.json   set ft=json
 au BufRead,BufNewFile *.ino    set ft=cpp
-au BufRead,BufNewFile *.go     set ft=go
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
@@ -157,5 +135,3 @@ au BufWrite /private/etc/pw.* set nowritebackup
 
 " fixes term color issue
 let &t_Co=256
-
-let g:vim_markdown_folding_disabled = 1

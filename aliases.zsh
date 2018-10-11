@@ -12,7 +12,7 @@ alias dg='cd ~/Dev/git'
 alias dv='cd ~/Dev'
 alias dvg='cd ~/Dev/go'
 alias dvp='cd ~/Dev/personal'
-alias dvm='cd ~/Dev/mlc'
+alias dvi='cd ~/Dev/iflix'
 
 #Docker
 alias dk='docker'
@@ -22,6 +22,10 @@ alias dkv='docker volume ls'
 alias dkps='docker ps -a'
 alias dkrm='docker ps -a --format "{{.ID}}" | xargs docker rm -v'
 alias dcm='docker-compose'
+
+# K8s
+alias k="kubectl"
+alias ko="kubectl -o wide"
 
 # Vagrant
 alias v="vagrant"
@@ -41,6 +45,3 @@ alias fs="stat -f \"%z bytes\""
 
 # pwgen shortcut
 alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
-
-# VMWare CloudClient
-alias cloudclient='/opt/cloudclient/bin/cloudclient.sh'
