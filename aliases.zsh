@@ -1,3 +1,10 @@
+# Custom cd
+c() {
+  cd $1;
+  ls -l;
+}
+alias cd="c"
+
 # Show history
 alias history='fc -l 1'
 
@@ -45,3 +52,25 @@ alias fs="stat -f \"%z bytes\""
 
 # pwgen shortcut
 alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
+
+
+################ KEYBINDINGS ################
+# Too lazy to move it to keybindings file
+# Source: https://github.com/Parth/dotfiles
+#############################################
+# up
+	function up_widget() {
+		BUFFER="cd .."
+		zle accept-line
+	}
+	zle -N up_widget
+	bindkey "^k" up_widget
+
+# home
+	function goto_home() { 
+		BUFFER="cd ~/"$BUFFER
+		zle end-of-line
+		zle accept-line
+	}
+	zle -N goto_home
+	bindkey "^h" goto_home
