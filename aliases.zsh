@@ -1,7 +1,7 @@
 # Custom cd
 c() {
   cd $1;
-  ls -l;
+  ll;
 }
 alias cd="c"
 
