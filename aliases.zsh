@@ -53,6 +53,8 @@ alias fs="stat -f \"%z bytes\""
 # pwgen shortcut
 alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
 
+# tmux
+alias tm='tmux'
 
 ################ KEYBINDINGS ################
 # Too lazy to move it to keybindings file
