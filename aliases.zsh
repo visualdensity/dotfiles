@@ -4,6 +4,8 @@ c() {
   ls -l --color=always;
 }
 alias cd="c"
+alias vf='vim $(fzf)'
+alias tm='tmux'
 
 # Show history
 alias history='fc -l 1'
@@ -55,6 +57,7 @@ alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
 
 # tmux
 alias tm='tmux'
+
 
 ################ KEYBINDINGS ################
 # Too lazy to move it to keybindings file
