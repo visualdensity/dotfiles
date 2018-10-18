@@ -74,3 +74,7 @@ alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
 	}
 	zle -N goto_home
 	bindkey "^h" goto_home
+
+if [[ -a $ZSH/lib/prompt.sh ]]; then
+  source $ZSH/lib/prompt.sh
+fi
