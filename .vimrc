@@ -130,11 +130,11 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 set background=dark
 
 " Buffer filetype
-au BufRead,BufNewFile *.less   set ft=css
-au BufRead,BufNewFile *.scss   set ft=sass
-au BufRead,BufNewFile *.coffee set ft=coffee
-au BufRead,BufNewFile *.json   set ft=json
-au BufRead,BufNewFile *.ino    set ft=cpp
+au BufRead,BufNewFile *.less     set ft=css
+au BufRead,BufNewFile *.scss     set ft=sass
+au BufRead,BufNewFile *.coffee   set ft=coffee
+au BufRead,BufNewFile *.ino      set ft=cpp
+au BufRead,BufNewFile *.template set ft=json
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
