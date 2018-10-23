@@ -41,9 +41,9 @@ set expandtab
 set shiftround
 set tw=84 "maximum characters in a line before wrapping
 set nowrap
-set winheight=15
-set winminheight=15
-set winheight=999
+"set winheight=15
+"set winminheight=15
+"set winheight=999
 set modelines=1 "Mac OS X fix - http://unix.stackexchange.com/questions/19875/setting-vim-filetype-with-modeline-not-working-as-expected
 set modeline
 
