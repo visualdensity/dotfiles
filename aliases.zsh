@@ -3,9 +3,8 @@ c() {
   cd $1;
   ls -l --color=always;
 }
-alias cd="c"
 alias vf='vim $(fzf)'
-alias tm='tmux'
+alias cat='bat'
 
 # Show history
 alias history='fc -l 1'
@@ -40,8 +39,9 @@ alias ko="kubectl -o wide"
 alias v="vagrant"
 alias vv='cd ~/Dev/personal/vagrant/'
 
-# Misc
+# Tmux
 alias tmux="TERM=screen-256color-bce tmux"
+alias tm='tmux'
 
 # Below taken from Paul Irish's (@paulirish) dotfiles (Thanks!)
 # Ref: https://github.com/paulirish/dotfiles
@@ -54,9 +54,6 @@ alias fs="stat -f \"%z bytes\""
 
 # pwgen shortcut
 alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
-
-# tmux
-alias tm='tmux'
 
 
 ################ KEYBINDINGS ################

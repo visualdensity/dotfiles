@@ -21,6 +21,10 @@ call pathogen#helptags()
 call pathogen#infect() " ~/.vim/autoload/pathogen.vim
 filetype plugin indent on
 
+call plug#begin('~/.vim/plugged')
+Plug '~/.fzf'
+call plug#end()
+
 " My lead
 let mapleader=','
 
@@ -114,6 +118,10 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+
+" FZF integration
+set rtp+=~/.fzf
+nnoremap <silent> <Leader>sf ::FZF! <CR>
 
 " Open up ~/.vimrc quick!
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
