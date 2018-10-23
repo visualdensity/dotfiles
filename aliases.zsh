@@ -3,6 +3,7 @@ c() {
   cd $1;
   ls -l --color=always;
 }
+alias cd="c"
 alias vf='vim $(fzf)'
 alias cat='bat'
 
