@@ -64,8 +64,8 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 "
 
     " OR ELSE just the 81st column of wide lines...
-    highlight ColorColumn ctermbg=magenta
-    call matchadd('ColorColumn', '\%75v', 100)
+    "highlight ColorColumn ctermbg=magenta
+    "call matchadd('ColorColumn', '\%75v', 100)
 
     " EITHER the entire 81st column, full-screen...
     " highlight ColorColumn ctermbg=magenta
