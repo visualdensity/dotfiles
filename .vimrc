@@ -117,11 +117,10 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " %% shows current location
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
-map <leader>v :view %%
 
 " FZF integration
 set rtp+=~/.fzf
-nnoremap <silent> <Leader>sf ::FZF! <CR>
+nnoremap <silent> <Leader>sf :FZF! <CR>
 
 " Open up ~/.vimrc quick!
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
@@ -143,3 +142,7 @@ au BufWrite /private/etc/pw.* set nowritebackup
 
 " fixes term color issue
 let &t_Co=256
+
+" indentLine 
+let g:indentLine_enabled = 0
+nnoremap <silent> <Leader>v :IndentLinesToggle<CR>
