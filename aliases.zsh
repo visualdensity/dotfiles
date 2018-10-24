@@ -26,7 +26,6 @@ alias dvi='cd ~/Dev/iflix'
 #Docker
 alias dk='docker'
 alias dkr='docker run'
-alias dkrdev='docker run -v /Users/visualdensity/Dev:/root/dev'
 alias dkv='docker volume ls'
 alias dkps='docker ps -a'
 alias dkrm='docker ps -a --format "{{.ID}}" | xargs docker rm -v'
@@ -81,3 +80,5 @@ alias pw="pwgen -nBy -r '\"\`[],' -s 25 1"
 if [[ -a $ZSH/lib/prompt.sh ]]; then
   source $ZSH/lib/prompt.sh
 fi
+
+alias sta='saml2aws login --profile iflix-okta'
