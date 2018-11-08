@@ -82,3 +82,4 @@ if [[ -a $ZSH/lib/prompt.sh ]]; then
 fi
 
 alias sta='saml2aws login --profile iflix-okta'
+alias gg='cd ~/go/src/github.com/'
