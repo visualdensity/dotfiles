@@ -5,7 +5,7 @@ c() {
 }
 alias cd="c"
 alias vf='vim $(fzf)'
-alias cat='bat'
+alias cat='bat --theme "1337" --paging never'
 
 # Show history
 alias history='fc -l 1'
