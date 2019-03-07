@@ -83,3 +83,4 @@ fi
 
 alias sta='saml2aws login --profile iflix-okta'
 alias gg='cd ~/go/src/github.com/'
+alias ka='kube-aws'
