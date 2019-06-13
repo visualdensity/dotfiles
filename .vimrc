@@ -126,7 +126,8 @@ nnoremap <silent> <Leader>sf :FZF! <CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " Theme
-set background=dark
+" set background=dark
+colorscheme molokai
 
 " Buffer filetype
 au BufRead,BufNewFile *.less     set ft=css
