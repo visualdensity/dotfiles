@@ -1,27 +1,3 @@
-[submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
-	url = git@github.com:plasticboy/vim-markdown.git
-[submodule ".vim/bundle/lightline"]
-	path = .vim/bundle/lightline
-	url = git@github.com:itchyny/lightline.vim.git
-[submodule ".vim/bundle/command-t"]
-	path = .vim/bundle/command-t
-	url = https://github.com/wincent/Command-T.git
-[submodule ".vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule ".vim/bundle/gitgutter"]
 	path = .vim/bundle/gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
-[submodule ".vim/bundle/vim-less"]
-	path = .vim/bundle/vim-less
-	url = https://github.com/groenewege/vim-less.git
-[submodule ".vim/bundle/vim-puppet"]
-	path = .vim/bundle/vim-puppet
-	url = git://github.com/rodjek/vim-puppet.git
-[submodule ".vim/bundle/align"]
-	path = .vim/bundle/align
-	url = git://github.com/vim-scripts/Align.git
-[submodule ".vim/bundle/vim-json"]
-	path = .vim/bundle/vim-json
-	url = git@github.com:elzr/vim-json.git
