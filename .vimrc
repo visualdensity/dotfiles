@@ -33,9 +33,9 @@ set number
 set encoding=utf-8
 set smartindent
 set autoindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set cinkeys=0{,0},:,0#,!^F
 set expandtab
 set shiftround
@@ -135,6 +135,7 @@ au BufRead,BufNewFile *.scss     set ft=sass
 au BufRead,BufNewFile *.coffee   set ft=coffee
 au BufRead,BufNewFile *.ino      set ft=cpp
 au BufRead,BufNewFile *.template set ft=json
+au BufRead,BufNewFile *.go       set ft=go
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup
@@ -147,3 +148,21 @@ let &t_Co=256
 " indentLine 
 let g:indentLine_enabled = 0
 nnoremap <silent> <Leader>v :IndentLinesToggle<CR>
+
+" tmux run-shell with output to pane #1
+nnoremap <leader>rr :!tmux run-shell -t 1 -b ./%<CR>
+
+" vim-go specific
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+
+" Enable autocompletion
+set omnifunc=syntaxcomplete#Complete
+" " Select keyword as you type
+set completeopt=longest,menuone
+
+nnoremap <leader>gr :GoRun %<CR>
+nnoremap <leader>gd :GoDef<CR>
+
