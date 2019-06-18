@@ -28,6 +28,11 @@ call plug#end()
 " My lead
 let mapleader=','
 
+" Enable autocompletion
+set omnifunc=syntaxcomplete#Complete
+" " Select keyword as you type
+set completeopt=longest,menuone
+
 set backspace=indent,eol,start
 set number
 set encoding=utf-8
@@ -158,11 +163,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 
-" Enable autocompletion
-set omnifunc=syntaxcomplete#Complete
-" " Select keyword as you type
-set completeopt=longest,menuone
-
 nnoremap <leader>gr :GoRun %<CR>
 nnoremap <leader>gd :GoDef<CR>
 
+" GitGutter
+nnoremap <leader>gt :GitGutterToggle<CR>
