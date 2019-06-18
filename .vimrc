@@ -46,11 +46,11 @@ set expandtab
 set shiftround
 set tw=84 "maximum characters in a line before wrapping
 set nowrap
-"set winheight=15
-"set winminheight=15
-"set winheight=999
 set modelines=1 "Mac OS X fix - http://unix.stackexchange.com/questions/19875/setting-vim-filetype-with-modeline-not-working-as-expected
 set modeline
+
+" Vertical lines for tabs
+set list lcs=tab:\¦\  
 
 " Ignore case and search intelligently
 set ignorecase
@@ -150,14 +150,12 @@ au BufWrite /private/etc/pw.* set nowritebackup
 " fixes term color issue
 let &t_Co=256
 
-" indentLine 
-let g:indentLine_enabled = 0
-nnoremap <silent> <Leader>v :IndentLinesToggle<CR>
-
 " tmux run-shell with output to pane #1
 nnoremap <leader>rr :!tmux run-shell -t 1 -b ./%<CR>
 
 " vim-go specific
+let g:go_fmt_autosave=1  " gofmt uses tabs by standard
+let g:go_fmt_options = "-tabwidth=2"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -168,3 +166,9 @@ nnoremap <leader>gd :GoDef<CR>
 
 " GitGutter
 nnoremap <leader>gt :GitGutterToggle<CR>
+
+" IndentLine plugin
+let g:indentLine_enabled = 1
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+nnoremap <silent> <Leader>v :IndentLinesToggle<CR>
+au BufRead,BufEnter,BufNewFile * IndentLinesReset
