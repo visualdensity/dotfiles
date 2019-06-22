@@ -17,7 +17,7 @@ alias ll='ls -l'
 alias sl=ls # often screw this up
 
 # Navigation
-alias dg='cd ~/Dev/git'
+alias dg='cd ~/go/src/github.com/'
 alias dv='cd ~/Dev'
 alias dvg='cd ~/Dev/go'
 alias dvp='cd ~/Dev/personal'
