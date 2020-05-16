@@ -2,6 +2,7 @@
 c() {
   cd $1;
   ls -l --color=always;
+  # ls -lG; # for Mac terminals
 }
 alias cd="c"
 alias vf='vim $(fzf)'
