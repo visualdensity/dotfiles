@@ -127,6 +127,11 @@ map <leader>e :edit %%
 set rtp+=~/.fzf
 nnoremap <silent> <Leader>sf :FZF! <CR>
 
+" Nerdtree
+set rtp+=~/.fzf
+nnoremap <silent> <Leader>nt :NERDTreeToggle <CR>
+
+
 " Open up ~/.vimrc quick!
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
