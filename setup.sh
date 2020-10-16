@@ -9,7 +9,8 @@
 
 function help {
     echo "Usage: ./setup.sh [option]"
-    echo "      -a Full install including ruby, gems, rake and zsh"
+    echo "This will initialise most vim plugins and bundles and then copies them over to the right places"
+    echo "      -a Full install including ruby, gems, rake and zsh - Only works on DEBIAN-based distros!"
     exit 0
 }
 
@@ -50,10 +51,6 @@ blah 'Copying files to proper locations...'
 cp .gitconfig ~/
 cp .vimrc ~/
 cp -R .vim ~/
-
-blah 'Buildling command-t...'
-cd ~/.vim/bundle/command-t
-rake make
 
 if [ -n "$all" ]; 
 then
