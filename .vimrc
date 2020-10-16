@@ -157,6 +157,7 @@ let &t_Co=256
 
 " tmux run-shell with output to pane #1
 nnoremap <leader>rr :!tmux run-shell -t 1 -b ./%<CR>
+nnoremap <leader>tt :silent ! tmux send -t 0 'npm run build' Enter \| :redraw! 
 
 " vim-go specific
 let g:go_fmt_autosave=1  " gofmt uses tabs by standard
