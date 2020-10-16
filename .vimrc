@@ -50,7 +50,7 @@ set modelines=1 "Mac OS X fix - http://unix.stackexchange.com/questions/19875/se
 set modeline
 
 " Vertical lines for tabs
-set list lcs=tab:\¦\  
+set list lcs=tab:\¦\
 
 " Ignore case and search intelligently
 set ignorecase
@@ -111,7 +111,7 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 
 " ,<space> to clear off search input * hlsearch
-nnoremap <leader><space> :noh<cr> 
+nnoremap <leader><space> :noh<cr>
 
 " Keybinding for paste mode
 set pastetoggle=<F2>
@@ -157,7 +157,7 @@ let &t_Co=256
 
 " tmux run-shell with output to pane #1
 nnoremap <leader>rr :!tmux run-shell -t 1 -b ./%<CR>
-nnoremap <leader>tt :silent ! tmux send -t 0 'npm run build' Enter \| :redraw! 
+nnoremap <leader>tt :silent !tmux send -t 0 'npm run build' Enter <CR>:redraw!<CR>
 
 " vim-go specific
 let g:go_fmt_autosave=1  " gofmt uses tabs by standard
