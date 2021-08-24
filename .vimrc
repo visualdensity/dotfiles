@@ -141,7 +141,7 @@ map <leader>e :edit %%
 
 " FZF integration
 let g:fzf_preview_window = []
-let g:fzf_layout = { 'down':  '30%'}
+let g:fzf_layout = { 'down':  '25%'}
 
 set rtp+=~/.fzf
 "nnoremap <silent> <Leader>sf :FZF!<CR>
