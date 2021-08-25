@@ -69,6 +69,7 @@ set colorcolumn=100
 set incsearch
 set showmatch
 set hlsearch
+set cursorline
 highlight ColorColumn ctermbg=1
 
 " Vertical lines for tabs
