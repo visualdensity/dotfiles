@@ -15,39 +15,38 @@
 " Must come first
 set nocompatible
 syntax on
-
 filetype off
+
+"====[ Pathogen ]====
 call pathogen#helptags()
 call pathogen#infect() " ~/.vim/autoload/pathogen.vim
-filetype plugin indent on
 
+"====[ VIM Plug ]====
 call plug#begin('~/.vim/plugged')
-" Search capability
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+  " Syntax highlighter for various languages
+  Plug 'sheerun/vim-polyglot'
 
-" Code completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " FZF search capability
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
-" Python syntax highlighing
-Plug 'ambv/black'
+  " Code completion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Commenter
-Plug 'preservim/nerdcommenter'
+  " Commenter
+  Plug 'preservim/nerdcommenter'
 
-" Vim-monokai-tasty color theme
-Plug 'patstockwell/vim-monokai-tasty'
+  " Prettier and more useful statusline
+  Plug 'itchyny/lightline.vim'
 
+  " Vim-monokai-tasty color theme
+  Plug 'patstockwell/vim-monokai-tasty'
 call plug#end()
 
-" My lead
-let mapleader=','
 
-" Enable autocompletion
-set omnifunc=syntaxcomplete#Complete
-" " Select keyword as you type
-set completeopt=longest,menuone
-
+"====[ vim configs ]====
+filetype plugin indent on
+let &t_Co=256
 set backspace=indent,eol,start
 set number
 set encoding=utf-8
@@ -59,57 +58,33 @@ set softtabstop=2
 set cinkeys=0{,0},:,0#,!^F
 set expandtab
 set shiftround
-set tw=84 "maximum characters in a line before wrapping
+set tw=100 "maximum characters in a line before wrapping
 set nowrap
 set modelines=1 "Mac OS X fix - http://unix.stackexchange.com/questions/19875/setting-vim-filetype-with-modeline-not-working-as-expected
 set modeline
+set laststatus=2 " For lightline. More customisation: https://github.com/itchyny/lightline.vim
+set ignorecase " Ignore case and search intelligently
+set smartcase
+set colorcolumn=100
+set incsearch
+set showmatch
+set hlsearch
+highlight ColorColumn ctermbg=1
 
 " Vertical lines for tabs
 set list lcs=tab:\¦\
 
-" Ignore case and search intelligently
-set ignorecase
-set smartcase
-
 " Regexp reset & search
 nnoremap / /\v
 vnoremap / /\v
-set incsearch
-set showmatch
-set hlsearch
 
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
-"====[ Make the 81st column stand out ]====================
-"
-
-    " OR ELSE just the 81st column of wide lines...
-    "highlight ColorColumn ctermbg=magenta
-    "call matchadd('ColorColumn', '\%75v', 100)
-
-    " EITHER the entire 81st column, full-screen...
-    " highlight ColorColumn ctermbg=magenta
-    " set colorcolumn=75
-
-"====[ Make the 81st column stand out ]====================
-
-    " This rewires n and N to do the highlighing...
-    nnoremap <silent> n   n:call HLNext(0.4)<cr>
-    nnoremap <silent> N   N:call HLNext(0.4)<cr>
-
-    " EITHER blink the line containing the match...
-    function! HLNext (blinktime)
-        set invcursorline
-        redraw
-        exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-        set invcursorline
-        redraw
-    endfunction
 
 "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
-"
-"    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-"    set list
+
+    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+    set list
 
 "====[ Open any file with a pre-existing swapfile in readonly mode "]=========
 
@@ -125,91 +100,96 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
     " Also consider the autoswap_mac.vim plugin (but beware its limitations)
 
 
-" ,<space> to clear off search input * hlsearch
-nnoremap <leader><space> :noh<cr>
+""
+" ====[ Leader Mappings ]====
+""
+  " My leader key
+  let mapleader=','
 
-" Commenter toggling
-"nnoremap <leader><leader>c :call (0,"toggle")<CR>
-"vnoremap <leader><leader>c :call NERDComment(0,"toggle")<CR>
+  " ,<space> to clear off search input * hlsearch
+  nnoremap <leader><space> :noh<cr>
 
-" Removes all trailing whitespaces
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+  " Removes all trailing whitespaces
+  nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" %% shows current location
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
+  " %% shows current location
+  cnoremap %% <C-R>=expand('%:h').'/'<cr>
+  map <leader>e :edit %%
 
-" FZF integration
-let g:fzf_preview_window = []
-let g:fzf_layout = { 'down':  '25%'}
+  " FZF integration
+  set rtp+=~/.fzf
+  let g:fzf_preview_window = []
+  let g:fzf_layout = { 'down':  '25%'}
+  nnoremap <silent> <Leader>sf :Files<CR>
 
-set rtp+=~/.fzf
-"nnoremap <silent> <Leader>sf :FZF!<CR>
-nnoremap <silent> <Leader>sf :Files<CR>
+  " Nerdtree
+  " Press m to bring up the NERDTree Filesystem Menu. This menu allows you to create, rename, and
+  " delete files and directories. Type a to add a child node and then simply enter the filename.
+  " For directories/folders, end with a /
+  nnoremap <silent> <Leader>nt :NERDTreeToggle <CR>
 
+  " Open up ~/.vimrc quick!
+  nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-" Nerdtree
-set rtp+=~/.fzf
-nnoremap <silent> <Leader>nt :NERDTreeToggle <CR>
+  " CoC
+  nmap <leader>ccd <Plug>(coc-definition)
+  nmap <leader>ccr <Plug>(coc-references)
 
-" Open up ~/.vimrc quick!
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+  " vim-go stuff
+  let g:go_fmt_autosave=1  " gofmt uses tabs by standard
+  let g:go_fmt_options = "-tabwidth=2"
+  let g:go_highlight_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_function_calls = 1
+  nnoremap <leader>gr :GoRun %<CR>
+  nnoremap <leader>gd :GoDef<CR>
 
-"CoC 
-nmap <leader>ccd <Plug>(coc-definition)
-nmap <leader>ccr <Plug>(coc-references)
+  "GitGutter
+  nnoremap <leader>gt :GitGutterToggle<CR>
 
-
-" Theme
-" set background=dark
-colorscheme molokai
-"colorscheme vim-monokai-tasty
-
-
-" Buffer filetype
-au BufRead,BufNewFile *.less     set ft=css
-au BufRead,BufNewFile *.scss     set ft=sass
-au BufRead,BufNewFile *.coffee   set ft=coffee
-au BufRead,BufNewFile *.ino      set ft=cpp
-au BufRead,BufNewFile *.template set ft=json
-au BufRead,BufNewFile *.go       set ft=go
-au BufRead,BufNewFile *.tf       set ft=terraform
-
-" Don't write backup file if vim is being called by "crontab -e"
-au BufWrite /private/tmp/crontab.* set nowritebackup
-" Don't write backup file if vim is being called by "chpass"
-au BufWrite /private/etc/pw.* set nowritebackup
-
-" fixes term color issue
-let &t_Co=256
-
-" tmux run-shell with output to pane #1
-nnoremap <leader>rr :!tmux run-shell -t 1 -b ./%<CR>
-nnoremap <leader>tt :silent !tmux send -t 0 'npm run build' Enter <CR>:redraw!<CR>
-
-" vim-go specific
-let g:go_fmt_autosave=1  " gofmt uses tabs by standard
-let g:go_fmt_options = "-tabwidth=2"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-
-nnoremap <leader>gr :GoRun %<CR>
-nnoremap <leader>gd :GoDef<CR>
-
-" GitGutter
-nnoremap <leader>gt :GitGutterToggle<CR>
-
-" IndentLine plugin
-let g:indentLine_enabled = 1
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-nnoremap <silent> <Leader>v :IndentLinesToggle<CR>
-au BufRead,BufEnter,BufNewFile * IndentLinesReset
+  "IndentLine
+  let g:indentLine_enabled = 1
+  let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+  nnoremap <silent> <Leader>v :IndentLinesToggle<CR>
 
 
-" coc.vim config
-" https://github.com/neoclide/coc.nvim
+"====[ Theme ]====
+  set background=dark
+  "colorscheme molokai
+  colorscheme vim-monokai-tasty
+
+
+"====[ Buffer filetype ]====
+  au BufRead,BufEnter,BufNewFile * IndentLinesReset
+  au BufRead,BufNewFile *.less     set ft=css
+  au BufRead,BufNewFile *.scss     set ft=sass
+  au BufRead,BufNewFile *.coffee   set ft=coffee
+  au BufRead,BufNewFile *.ino      set ft=cpp
+  au BufRead,BufNewFile *.template set ft=json
+  au BufRead,BufNewFile *.go       set ft=go
+  au BufRead,BufNewFile *.tf       set ft=terraform
+
+"====[ MISC stuff ]====
+  " Don't write backup file if vim is being called by "crontab -e"
+  au BufWrite /private/tmp/crontab.* set nowritebackup
+  " Don't write backup file if vim is being called by "chpass"
+  au BufWrite /private/etc/pw.* set nowritebackup
+
+"====[ TMUX - run-shell with output to pane #1 ]====
+  nnoremap <leader>rr :!tmux run-shell -t 1 -b ./%<CR>
+  nnoremap <leader>tt :silent !tmux send -t 0 'npm run build' Enter <CR>:redraw!<CR>
+
+
+
+
+" ========================================
+"
+"    CoC Plugin Configuration
+"    A direct copy from:
+"    https://github.com/neoclide/coc.nvim
+"
+" ========================================
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
