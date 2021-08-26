@@ -107,6 +107,9 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
   " My leader key
   let mapleader=','
 
+  " Toggle cursorline
+  nnoremap <leader>l :set cursorline!<cr>
+
   " ,<space> to clear off search input * hlsearch
   nnoremap <leader><space> :noh<cr>
 
@@ -133,8 +136,8 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
   nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
   " CoC
-  nmap <leader>ccd <Plug>(coc-definition)
-  nmap <leader>ccr <Plug>(coc-references)
+  nmap <leader><leader>d <Plug>(coc-definition)
+  nmap <leader><leader>r <Plug>(coc-references)
 
   " vim-go stuff
   let g:go_fmt_autosave=1  " gofmt uses tabs by standard
