@@ -34,10 +34,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Commenter
+  Plug 'preservim/nerdtree'
   Plug 'preservim/nerdcommenter'
 
   " Prettier and more useful statusline
   Plug 'itchyny/lightline.vim'
+
+  " Vim-go
+  Plug 'fatih/vim-go'
 
   " Vim-monokai-tasty color theme
   Plug 'patstockwell/vim-monokai-tasty'
