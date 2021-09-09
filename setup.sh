@@ -55,8 +55,7 @@ cp -R .vim ~/
 if [ -n "$all" ]; 
 then
     blah 'Installing oh-my-zsh...'
-    curl -L https://github.com/visualdensity/oh-my-zsh/raw/master/tools/install.sh | sh
-    cp aliases.zsh ~/.oh-my-zsh/lib/
+    ./setup_zsh.sh
 fi
 
 blah 'Done!'

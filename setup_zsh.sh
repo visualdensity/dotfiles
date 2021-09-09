@@ -1,3 +1,3 @@
-curl -L https://github.com/visualdensity/oh-my-zsh/raw/master/tools/install.sh | sh
+curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -s -- --unattended
 
 cp aliases.zsh ~/.oh-my-zsh/lib/
