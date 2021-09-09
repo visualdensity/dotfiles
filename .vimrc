@@ -69,7 +69,7 @@ set modeline
 set laststatus=2 " For lightline. More customisation: https://github.com/itchyny/lightline.vim
 set ignorecase " Ignore case and search intelligently
 set smartcase
-set colorcolumn=100
+"set colorcolumn=100
 set incsearch
 set showmatch
 set hlsearch
@@ -110,6 +110,9 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 ""
   " My leader key
   let mapleader=','
+
+  " Toggle Relative numbering
+  nnoremap <leader>r :set rnu!<cr>
 
   " Toggle cursorline
   nnoremap <leader>l :set cursorline!<cr>
