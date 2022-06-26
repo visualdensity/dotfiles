@@ -16,12 +16,12 @@ Best to run with the following installed:
 
 # Post-Install Setup
 
-In `vim`, install all Plug extensions first:
-
-  :PlugInstall
-
+In `vim`, install all [Plug](https://github.com/junegunn/vim-plug) extensions first:
+```
+:PlugInstall
+```
 After that, install `CoC` extensions for code completion support:
-
-  :CocInstall coc-json coc-tsserver coc-go
-
+```
+:CocInstall coc-json coc-tsserver coc-go
+```
 More extensions can be found on [CoC project](https://github.com/neoclide/coc.nvim).
