@@ -15,13 +15,41 @@ Best to run with the following installed:
   * NodeJS with yarn (via npm)
 
 # Post-Install Setup
+After initial provisioning, within `vim` various plugins will need to be initialised and set up. 
 
+## For vim-plug
 In `vim`, install all [Plug](https://github.com/junegunn/vim-plug) extensions first:
 ```
 :PlugInstall
 ```
-After that, install `CoC` extensions for code completion support:
+
+## For CoC for vim
+Install `coc` extensions for code completion support:
 ```
 :CocInstall coc-json coc-tsserver coc-go coc-pyright coc-yaml
 ```
 More extensions can be found on [CoC project](https://github.com/neoclide/coc.nvim).
+
+### CoC .NET - C#
+If code completion is require for C#, install [`csharp-ls`](https://www.nuget.org/packages/csharp-ls/) first:
+```
+dotnet tool install -g csharp-ls
+```
+Then ensure you've added `~/.dotnet/tools/bin` path to your environment path and finally adding the following to your `:CocConfig`
+```
+{
+    "languageserver": {
+        "csharp-ls": {
+          "command": "csharp-ls",
+          "filetypes": ["cs"],
+          "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+        }
+    }
+}
+```
+
+## For vim-go
+Install Go binaries!
+```
+:GoInstallBinaries
+```
