@@ -1,4 +1,5 @@
 {
+  "pyright.inlayHints.enable": false,
   "languageserver": {
     "terraform": {
       "command": "terraform-ls",
