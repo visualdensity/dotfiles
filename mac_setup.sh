@@ -34,6 +34,11 @@ echo ""
 echo ":::SETUP::Setting up bat..."
 /opt/homebrew/bin/brew install bat
 
+# Setup fzf
+echo ""
+echo ":::SETUP::Setting up fzf..."
+/opt/homebrew/bin/brew install fzf
+
 mkdir ~/.nvm
 cp .vimrc ~/
 cp -R .vim ~/
