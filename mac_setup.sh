@@ -16,9 +16,23 @@ echo ""
 
 # Setup Vim
 echo ""
-echo ":::SETUP::Setting up vim stuff..."
-
+echo ":::SETUP::Setting up NVM for vim plugins..."
 /opt/homebrew/bin/brew install nvm
+
+# Setup VIM
+echo ""
+echo ":::SETUP::Setting up vim..."
+/opt/homebrew/bin/brew install vim
+
+# Setup Ansible
+echo ""
+echo ":::SETUP::Setting up Ansible..."
+/opt/homebrew/bin/brew install ansible
+
+# Setup bat - cat with syntax highlighting
+echo ""
+echo ":::SETUP::Setting up bat..."
+/opt/homebrew/bin/brew install bat
 
 mkdir ~/.nvm
 cp .vimrc ~/
