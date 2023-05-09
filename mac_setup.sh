@@ -49,6 +49,7 @@ echo ""
 echo ":::SETUP::Copying misc config files..."
 cp .gitconfig ~/
 cp .tmux.conf ~/
+cp .zshrc ~/
 
 
 echo ""
