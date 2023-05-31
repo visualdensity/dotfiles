@@ -18,19 +18,7 @@ alias ll='ls -l'
 alias sl=ls # often screw this up
 
 # Navigation
-alias dg='cd ~/go/src/github.com/'
 alias dv='cd ~/Dev'
-alias dvg='cd ~/Dev/go'
-alias dvp='cd ~/Dev/personal'
-alias dvi='cd ~/Dev/iflix'
-
-#Docker
-alias dk='docker'
-alias dkr='docker run'
-alias dkv='docker volume ls'
-alias dkps='docker ps -a'
-alias dkrm='docker ps -a --format "{{.ID}}" | xargs docker rm -v'
-alias dcm='docker-compose'
 
 # K8s
 alias k="kubectl"
@@ -82,6 +70,7 @@ if [[ -a $ZSH/lib/prompt.sh ]]; then
   source $ZSH/lib/prompt.sh
 fi
 
-alias sta='saml2aws login --profile iflix-okta'
-alias gg='cd ~/go/src/github.com/'
 alias tf='terraform'
+
+PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT+=' %{$fg[cyan]%}%m@%c%{$reset_color%} $(git_prompt_info)'
