@@ -4,7 +4,7 @@ c() {
   ls -l --color=always;
   # ls -lG; # for Mac terminals
 }
-alias cd="c"
+
 alias vf='vim $(fzf)'
 alias cat='bat --theme "1337" --paging never'
 
