@@ -71,6 +71,7 @@ if [[ -a $ZSH/lib/prompt.sh ]]; then
 fi
 
 alias tf='terraform'
+alias mp='multipass'
 
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+=' %{$fg[cyan]%}%m@%c%{$reset_color%} $(git_prompt_info)'
