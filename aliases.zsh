@@ -70,7 +70,7 @@ if [[ -a $ZSH/lib/prompt.sh ]]; then
   source $ZSH/lib/prompt.sh
 fi
 
-alias tf='terraform'
+alias tf='tofu'
 alias mp='multipass'
 
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
