@@ -1,0 +1,19 @@
+# Settings
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+macos-titlebar-style = hidden
+
+# Other themes: Everblush, Flexoki Dark, Floraverse, Jellybeans
+theme = Dracula+ 
+
+
+## Bindings
+# Toggles
+keybind = ctrl+M=toggle_fullscreen
+
+# Navi
+keybind = super+shift+h=goto_split:left
+keybind = super+shift+j=goto_split:bottom
+keybind = super+shift+l=goto_split:right
+keybind = super+shift+k=goto_split:top
