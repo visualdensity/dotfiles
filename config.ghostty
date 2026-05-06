@@ -2,10 +2,10 @@
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+theme = Dracula+
 
-# Other themes: Everblush, Flexoki Dark, Floraverse, Jellybeans
-theme = Dracula+ 
-
+unfocused-split-opacity = 0.5
+split-divider-color=#964171
 
 ## Bindings
 # Toggles
